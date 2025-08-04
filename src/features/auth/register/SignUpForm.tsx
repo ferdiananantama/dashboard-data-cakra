@@ -132,8 +132,8 @@ export default function SignUpForm() {
                       },
                     })}
                     type="text"
-                    id="text"
                     placeholder="Input username"
+                    id="username"
                   />
                   {errors.username && (
                     <p className="text-red-500 text-xs">
@@ -146,10 +146,14 @@ export default function SignUpForm() {
                   <Input
                     {...register("email", {
                       required: "Email is required",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "Invalid email address",
+                      },
                     })}
-                    type="text"
-                    id="email"
                     placeholder="Input email"
+                    type="email"
+                    id="email"
                   />
                   {errors.email && (
                     <p className="text-red-500 text-xs">

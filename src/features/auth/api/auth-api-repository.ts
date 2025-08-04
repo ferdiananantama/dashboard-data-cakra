@@ -17,9 +17,9 @@ export const loginApi = async (body: IAuthProps): Promise<ILoginResponse> => {
 
 export const registerApi = async (body: IAuthProps): Promise<void> => {
   const form = new URLSearchParams();
-  form.append("email", "cek@gmail.com");
-  form.append("password", "password");
-  form.append("username", "ceekk");
+  form.append("email", body.email as string);
+  form.append("password", body.password as string);
+  form.append("username", body.username as string);
 
   axios.post(
     "https://extra-brooke-yeremiadio-46b2183e.koyeb.app/api/auth/local/register",

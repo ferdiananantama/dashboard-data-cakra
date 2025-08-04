@@ -98,7 +98,7 @@ export default function SignInForm() {
             <form onSubmit={handleSubmit(onSubmitLogin)}>
               <div className="space-y-6">
                 <div className="grid w-full items-center gap-1 text-sm">
-                  <label htmlFor="username">Email</label>
+                  <label htmlFor="username">Username</label>
                   <Input
                     {...register("username", {
                       required: "Username is required",
