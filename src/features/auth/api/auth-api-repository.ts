@@ -16,13 +16,17 @@ export const loginApi = async (body: IAuthProps): Promise<ILoginResponse> => {
 };
 
 export const registerApi = async (body: IAuthProps): Promise<void> => {
+  const form = new URLSearchParams();
+  form.append("email", "cek@gmail.com");
+  form.append("password", "password");
+  form.append("username", "ceekk");
+
   axios.post(
     "https://extra-brooke-yeremiadio-46b2183e.koyeb.app/api/auth/local/register",
+    form,
     {
-      body: {
-        email: body.email,
-        username: body.username,
-        password: body.password,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
       },
     }
   );

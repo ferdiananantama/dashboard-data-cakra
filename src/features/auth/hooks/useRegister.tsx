@@ -13,10 +13,11 @@ export const useRegister = () => {
       setLoading(true);
       setError(false);
       await registerApi(body);
+      toast.success("Register Successfully");
     } catch (err: any) {
+      toast.error(err.response.data.message);
       setError(true);
       console.error("Error fetching most popular articles:", err);
-      toast.error(err.response.data.error);
     } finally {
       setLoading(false);
     }

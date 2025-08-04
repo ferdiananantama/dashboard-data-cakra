@@ -22,7 +22,7 @@ export default function SignUpForm() {
   } = useForm({
     defaultValues: {
       username: "",
-      role: "",
+      email: "",
       password: "",
     },
   });
@@ -34,7 +34,7 @@ export default function SignUpForm() {
       const payload = {
         username: getValues("username"),
         password: getValues("password"),
-        role: getValues("role"),
+        email: getValues("email"),
       };
       await registerUser.action(payload);
       router.push("/auth/login");
@@ -142,18 +142,18 @@ export default function SignUpForm() {
                   )}
                 </div>
                 <div className="grid w-full items-center gap-1 text-sm">
-                  <label htmlFor="role">Role</label>
+                  <label htmlFor="email">Email</label>
                   <Input
-                    {...register("role", {
-                      required: "Role is required",
+                    {...register("email", {
+                      required: "Email is required",
                     })}
                     type="text"
-                    id="role"
-                    placeholder="Input role"
+                    id="email"
+                    placeholder="Input email"
                   />
-                  {errors.role && (
+                  {errors.email && (
                     <p className="text-red-500 text-xs">
-                      {errors.role.message}
+                      {errors.email.message}
                     </p>
                   )}
                 </div>
@@ -199,7 +199,7 @@ export default function SignUpForm() {
                     disabled={
                       !watch("password") ||
                       !watch("username") ||
-                      !watch("role") ||
+                      !watch("email") ||
                       !isChecked
                     }
                     className="w-full py-5"
